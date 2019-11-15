@@ -1,0 +1,64 @@
+api.openweathermap.org/data/2.5/weather?q=Lucca&APPID=65bf75f07712c3443a332621cd9c5aca&lang=it&units=metric
+
+icone:
+http://openweathermap.org/img/wn/[nomeIcona]@2x.png
+
+
+esempio di risposta:
+{
+   "coord":{
+      "lon":10.5,
+      "lat":43.84
+   },
+   "weather":[
+      {
+         "id":521,
+         "main":"Rain",
+         "description":"acquazzone",
+         "icon":"09d"
+      }
+   ],
+   "base":"stations",
+   "main":{
+      "temp":11.34,
+      "pressure":1002,
+      "humidity":100,
+      "temp_min":8.89,
+      "temp_max":13
+   },
+   "visibility":2500,
+   "wind":{
+      "speed":3.1,
+      "deg":260
+   },
+   "rain":{
+      "1h":0.25
+   },
+   "clouds":{
+      "all":75
+   },
+   "dt":1573816233,
+   "sys":{
+      "type":1,
+      "id":6803,
+      "country":"IT",
+      "sunrise":1573798323, //orario alba unix time (secondi trascorsi dal 1 gen 1970)
+      "sunset":1573833193	//orario tramonto unix time 
+   },
+   "timezone":3600,
+   "id":6542121,
+   "name":"Lucca",
+   "cod":200
+}
+
+/*
+* funzione di conversione tra UNIX time a ora standard
+*/
+
+function timeConverter(UNIX_timestamp: number){
+  var a = new Date(UNIX_timestamp * 1000);
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var time = hour + ':' + min;
+  return time;
+}
