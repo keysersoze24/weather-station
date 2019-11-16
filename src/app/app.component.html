@@ -1,2 +1,55 @@
-test weather
 <router-outlet></router-outlet>
+<div class="white" *ngIf="weatherStatus">
+<div id="mainContainer">
+
+  <div class="fontSize1"> {{ weatherStatus.cityName }} </div>
+
+    <img [src]="iconUrl" width="170px">
+    <div class="fontSize2"> {{ weatherStatus.description }}</div>
+    <div class="fontSize1">  {{ weatherStatus.temperature }} °C</div>
+    <div class="fontSize2" id="temperaturesDiv">
+      <div class="temperature">
+        <div>
+          T min.
+        </div>
+        <div>
+          {{ weatherStatus.temperatureMin }} °C
+        </div>
+      </div>
+      <div class="temperature">
+        <div>
+          T max.
+        </div>
+        <div>
+          {{ weatherStatus.temperatureMax }} °C
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fontSize2">
+        umidità: {{ weatherStatus.humidity }} %
+      </div>
+    <div class="fontSize2">
+        vento: {{ weatherStatus.windSpeed }} Km/h
+      </div>
+    <div class="fontSize2">
+      visibilità: {{ weatherStatus.visibility }} metri
+    </div>
+</div>
+
+<div class="fontSize1" id="hourContainer"> {{ time | date: 'hh:mm:ss a' }} </div>
+
+  <div id="sunriseAndSunset" class="fontSize2">
+    <div>
+      Alba: {{ weatherStatus.sunrise }}
+    </div>
+    <div>
+      Tramonto: {{ weatherStatus.sunset }}
+    </div>
+
+  </div>
+</div>
+
+
+<div id="signatureDiv">Powered by Andrea Della Maggiora</div>

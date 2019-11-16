@@ -1,0 +1,45 @@
+
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 100%;
+  border-radius: 1%;
+  margin: auto;
+}
+
+#temperaturesDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#hourContainer {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+#sunriseAndSunset {
+  display: flex;
+  justify-content: space-around;
+}
+
+#signatureDiv {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  font-size: 20px;
+  font-style: italic;
+  color: #FF5252;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}

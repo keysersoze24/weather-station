@@ -10,6 +10,7 @@ export class WeatherStatus {
     sunrise: string;            // orario di alba in formato unix
     sunset: string;             // orario tramonto
     cityName: string;
+    humidity: number;
 }
 
 export class Utilities {
@@ -19,14 +20,15 @@ export class Utilities {
 
         result.description = rawData.weather[0].description;
         result.icon = rawData.weather[0].icon;
-        result.temperature = rawData.main.temp;
-        result.temperatureMin = rawData.main.temp_min;
-        result.temperatureMax = rawData.main.temp_max;
+        result.temperature = Math.round( rawData.main.temp * 10 ) / 10;
+        result.temperatureMin = Math.round( rawData.main.temp_min * 10 ) / 10;
+        result.temperatureMax = Math.round( rawData.main.temp_max * 10 ) / 10;
         result.visibility = rawData.visibility;
         result.windSpeed = rawData.wind.speed;
-        result.sunrise = this.unixToTime(rawData.sys.sunrise);
+        result.sunrise = '0'+this.unixToTime(rawData.sys.sunrise);
         result.sunset = this.unixToTime(rawData.sys.sunset);
         result.cityName = rawData.name;
+        result.humidity = rawData.main.humidity;
 
         return result;
     }
@@ -40,5 +42,5 @@ export class Utilities {
     }
 }
 
-const FIRST_ICON_BASE_PATH = 'http://openweathermap.org/img/wn/';
-const SECOND_ICON_BASE_PATH = '@2x.png';
+export const ICON_BASE_PATH = 'http://openweathermap.org/img/wn/';
+export const ICON_TYPE = '@2x.png';

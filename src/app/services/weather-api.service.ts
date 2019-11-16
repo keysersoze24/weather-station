@@ -14,3 +14,4 @@ export class WeatherApiService {
 
 const API_KEY = '65bf75f07712c3443a332621cd9c5aca';
 const URL = 'http://api.openweathermap.org/data/2.5/weather?q=Lucca&lang=it&units=metric&APPID=' + API_KEY;
+
