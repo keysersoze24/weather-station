@@ -11,6 +11,8 @@ export class AppComponent {
   weatherStatus: WeatherStatus;
   iconUrl: string;
   time = new Date();
+  date: string;
+  hour: string;
 
   constructor(private weatherApi: WeatherApiService) { }
 
@@ -22,6 +24,8 @@ export class AppComponent {
     });
     setInterval(() => {
       this.time = new Date();
+      this.date = this.time.toLocaleDateString();
+      this.hour = this.time.toLocaleTimeString();
    }, 1000);
   }
 }
